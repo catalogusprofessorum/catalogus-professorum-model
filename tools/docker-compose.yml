@@ -1,0 +1,19 @@
+cpm-webserver:
+  restart: always
+  build: ./apache/
+  ports:
+    - 8581:80
+
+  volumes:
+    - ./data/cpm-widoco/www:/var/www/
+    - ./data/cpm-widoco/data:/data
+
+cpm-widoco:
+  restart: always
+  build: ./widoco/
+  volumes:
+    - ./data/cpm-widoco/www:/var/www/
+
+
+
+
