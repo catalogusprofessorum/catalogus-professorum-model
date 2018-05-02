@@ -1,0 +1,663 @@
+@base <http://catalogus-professorum.org/cpd/> .
+@prefix hp: <http://purl.org/voc/hp/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix doap: <http://usefulinc.com/ns/doap#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix shv: <http://ns.aksw.org/spatialHierarchy/> .
+@prefix team: <http://catalogus-professorum.org/team/> .
+
+<> a owl:Ontology;
+    rdfs:label "Catalogus Professorum Definition (CPD)";
+    foaf:maker team:UlfMorgenstern, team:ChristianRau, team:ChristianAugustin, team:FrederikeBulka, team:LydiaMueller, team:ThomasRiechert, team:SimeonAckermann, team:EdgardMarx, team:NormanRadtke, team:AndreasNareike, team:NatanaelArndt ;
+    doap:maintainer team:ThomasRiechert;
+    doap:homepage <https://catalogus-professorum.org/project/>;
+    cc:attributionName "AKSW" ;
+    vann:changes <https://github.com/pcp-on-web/catalogus-professorum-lipsiensium/model/commits/master/cpd.ttl>;
+    vann:preferredNamespacePrefix "cpd";
+    vann:preferredNamespaceUri "http://catalogus-professorum.org/cpd/";
+    <http://purl.org/dc/terms/modified> "2018-04-26" ;
+    <http://purl.org/dc/terms/modified> "2013-09-09" ;
+    <http://purl.org/dc/terms/modified> "2013-04-24" ;
+    <http://purl.org/dc/terms/modified> "2007-05-24" ;
+    <http://purl.org/dc/terms/modified> "2013-09-10" ;
+    <http://purl.org/dc/terms/modified> "2013-09-10" ;
+    <http://purl.org/dc/terms/modified> "2013-09-10" ;
+    owl:versionInfo "\n    version 2.0 - 2013-09-09 - Thomas Riechert\n    version 1.9 - 2013-04-24 - Thomas Riechert\n    version 1.0 (inital) - 2007-05-24 - Thomas Riechert\n    " ;
+    owl:imports <http://ns.aksw.org/spatialHierarchy/> ;
+    <http://purl.org/dc/terms/license> "http://creativecommons.org/licenses/by/4.0/" .
+
+<AcademicSociety> a owl:Class ;
+    rdfs:label "Wissenschaftliche Gesellschaft"@de, "Academic Society"@en ;
+    rdfs:comment "Diese Konzept beschreibt eine wissenschaftliche Gesellschaft"@de, "The concept Person describes an academic society"@en ;
+    owl:versionInfo "0.1 initial creation date: 04.12.2009", "2.0 stable" ;
+    rdfs:subClassOf <Organisation> .
+
+<Academy> a owl:Class ;
+    rdfs:label "Academy"@en, "Hochschule"@de ;
+    rdfs:comment "Diese Konzept beschreibt eine Hochschule"@de, "The concept Person describes an academy"@en ;
+    owl:versionInfo "0.1 initial creation date: 24.05.2007", "2.0 stable" ;
+    rdfs:subClassOf <Institution> .
+
+<Archive> a owl:Class ;
+    rdfs:label "Archiv"@de, "Archive"@en ;
+    rdfs:comment "The concept Person describes an archive"@en, "Diese Konzept beschreibt ein Archiv"@de ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation date: 31.03.2008" ;
+    rdfs:subClassOf <Institution> .
+
+<Birth> a owl:Class ;
+    rdfs:label "Birth"@en, "Geburt"@de ;
+    rdfs:comment "The concept Birth describes a birth day"@en, "Diese Konzept beschreibt den Geburtstag"@de ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation date: 09.09.2013" ;
+    rdfs:subClassOf <PeriodOfLife> .
+
+<Body> a owl:Class ;
+    rdfs:label "Körperschaft"@de, "Body"@en ;
+    rdfs:comment "Diese Konzept beschreibt Körperschaften"@de, "The concept Person describes a Body"@en ;
+    owl:versionInfo "0.1 initial creation date: 04.12.2009", "2.0 stable" .
+
+<Picture> a owl:Class ;
+    rdfs:label "Bild"@de, "Picture"@en ;
+    rdfs:comment "Diese Konzept beschreibt ein Bild"@de, "The concept Person describes a Picture"@en ;
+    owl:versionInfo "0.1 initial creation date: 13.01.2015" .
+
+<Career> a owl:Class ;
+    rdfs:label "Career step"@en, "Karriereschritt"@de ;
+    rdfs:comment "The concept Person describes of career step"@en, "Diese Konzept beschreibt einen Karriereschritt"@de ;
+    owl:versionInfo "0.1 initial creation date: 24.05.2007", "2.0 stable", "13.01.2015 changed as subclass of PeriodOfLife" ;
+    rdfs:subClassOf <PeriodOfLife> .
+
+<Death> a owl:Class ;
+    rdfs:label "Death"@en, "Gestorben"@de ;
+    rdfs:comment "The concept describes a day of death"@en, "Diese Konzept beschreibt den Sterbetag"@de ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation date: 09.09.2013" ;
+    rdfs:subClassOf <PeriodOfLife> .
+
+<Department> a owl:Class ;
+    rdfs:label "Department"@en, "Abteilung"@de ;
+    rdfs:comment "The concept Person describes a department"@en, "Diese Konzept beschreibt eine Abteilung"@de ;
+    owl:versionInfo "0.1 initial creation date: 24.05.2007", "2.0 stable" ;
+    rdfs:subClassOf <Institution> .
+
+<Faculty> a owl:Class ;
+    rdfs:label "Fakultät"@de, "Faculty"@en ;
+    rdfs:comment "The concept Person describes a faculty"@en, "Diese Konzept beschreibt eine Fakultät"@de ;
+    owl:versionInfo "0.1 initial creation date: 24.05.2007", "2.0 stable" ;
+    rdfs:subClassOf <Institution> .
+
+<Family> a owl:Class ;
+    rdfs:label "Familie"@de, "Family"@en ;
+    rdfs:comment "The concept Person describes families"@en, "Diese Konzept beschreibt Familien"@de ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation date: 19.01.2010" ;
+    rdfs:subClassOf <PeriodOfLife> .
+
+<GeneralPeriod> a owl:Class ;
+    rdfs:label "Allgemeiner Abschnitt"@de, "General Period"@en ;
+    rdfs:comment "The concept Person describes a general period of life"@en, "Diese Konzept beschreibt einen allgemeineren Lebensabschnitt"@de ;
+    owl:versionInfo "0.1 initial creation date: 24.05.2007", "2.0 stable changed from cpm:General to cpm:GeneralPeriod on 09.09.2013" ;
+    rdfs:subClassOf <PeriodOfLife> .
+
+<Graduation> a owl:Class ;
+    rdfs:label "Graduation"@en, "Abschluss"@de ;
+    rdfs:comment "Diese Konzept beschreibt einen Abschluss"@de, "The concept describes a graduation"@en ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation date: 09.09.2013" ;
+    rdfs:subClassOf <PeriodOfLife> .
+
+<GraduationDoctorate> a owl:Class ;
+    rdfs:label "Promotion"@de, "Graduation Doctorate"@en ;
+    rdfs:comment "The concept describes a graduation at university"@en, "Diese Konzept beschreibt den Abschluss einer Promotion"@de ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation date: 09.09.2013" ;
+    rdfs:subClassOf <Graduation> .
+
+<GraduationSchool> a owl:Class ;
+    rdfs:label "Schulabschluss"@de, "Graduation from School"@en ;
+    rdfs:comment "Diese Konzept beschreibt den Schulabschluss"@de, "The concept describes a graduation of school"@en ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation date: 09.09.2013" ;
+    rdfs:subClassOf <Graduation> .
+
+<GraduationUniversity> a owl:Class ;
+    rdfs:label "Hochschulabschluss"@de, "Graduation University"@en ;
+    rdfs:comment "The concept describes a graduation at university"@en, "Diese Konzept beschreibt den Abschluss an einer Universität"@de ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation date: 09.09.2013" ;
+    rdfs:subClassOf <Graduation> .
+
+<Institute> a owl:Class ;
+    rdfs:label "Institute"@en, "Institut"@de ;
+    rdfs:comment "The concept Person describes an institute"@en, "Diese Konzept beschreibt eine Institut"@de ;
+    owl:versionInfo "0.1 initial creation date: 24.05.2007", "2.0 stable" ;
+    rdfs:subClassOf <Institution> .
+
+<Institution> a owl:Class ;
+    rdfs:label "Institution"@de, "Institution"@en ;
+    rdfs:comment "The concept Person describes an institution"@en, "Diese Konzept beschreibt eine Institution"@de ;
+    owl:versionInfo "0.1 initial creation date: 24.05.2007", "2.0 stable" ;
+    rdfs:subClassOf <Body> .
+
+<School> a owl:Class;
+    rdfs:label "Schule"@de, "School"@en ;
+    rdfs:comment "Describes a school"@en, "Diese Konzept beschreibt eine Schule"@de ;
+    owl:versionInfo "0.1 initial creation date: 19.02.2015";
+    rdfs:subClassOf <Body>.
+
+<Office> a owl:Class ;
+    rdfs:label "Amt"@de, "Office"@en ;
+    rdfs:comment "The concept Person describes of a office"@en, "Diese Konzept beschreibt eines Amtes"@de ;
+    owl:versionInfo "0.1 initial creation date: 24.05.2007", "2.0 stable", "13.01.2015 changed as subclass of PeriodOfLife" ;
+    rdfs:subClassOf <PeriodOfLife> .
+
+<Organisation> a owl:Class ;
+    rdfs:label "Organisation"@de, "Organisation"@en ;
+    rdfs:comment "Diese Konzept beschreibt eine Organisation"@de, "The concept Person describes a organization"@en ;
+    owl:versionInfo "0.1 initial creation date: 04.12.2009", "2.0 stable" ;
+    rdfs:subClassOf <Body> .
+
+<OtherOrganisation> a owl:Class ;
+    rdfs:label "Sonstige Organisation"@de, "Other Organisation"@en ;
+    rdfs:comment "Diese Konzept beschreibt eine sonstige Organisation"@de, "The concept Person describes a other Organisation"@en ;
+    owl:versionInfo "0.1 initial creation date: 04.12.2009", "2.0 stable 09.09.2013 Organization changed to Organisation" ;
+    rdfs:subClassOf <Organisation> .
+
+<Party> a owl:Class ;
+    rdfs:label "Party"@en, "Partei"@de ;
+    rdfs:comment "Diese Konzept beschreibt eine politische Partei"@de, "The concept Person describes a party"@en ;
+    owl:versionInfo "0.1 initial creation date: 04.12.2009", "2.0 stable" ;
+    rdfs:subClassOf <Organisation> .
+
+<PeriodOfLife> a owl:Class ;
+    rdfs:label "Lebensabschnitt"@de, "Period of Life"@en ;
+    rdfs:comment "Diese Konzept beschreibt einen Lebensabschnitt"@de, "The concept Person describes a period of life "@en ;
+    owl:versionInfo "0.1 initial creation date: 24.05.2007", "2.0 stable" .
+
+<Person> a owl:Class ;
+    rdfs:label "Person"@de, "Person"@en ;
+    rdfs:comment "Das Konzept beschreibt eine historische Person"@de, "The concept Person describes an historic Person"@en ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation date: 25.5.2007" .
+
+<PoliticalOrganisation> a owl:Class ;
+    rdfs:label "Politische Organisation"@de, "Political Organisation"@en ;
+    rdfs:comment "Diese Konzept beschreibt eine politische Organisation"@de, "The concept Person describes a politcal Organisation"@en ;
+    owl:versionInfo "0.1 initial creation date: 04.12.2009", "2.0 stable" ;
+    rdfs:subClassOf <Organisation> .
+
+<Professor> a owl:Class ;
+    rdfs:label "Professor"@en, "Professor"@de ;
+    rdfs:comment "The concept Professor describes a person of profession Professor."@en, "Das Konzept Professor beschreibt eine historische Person mit dem Beruf eines Professors"@de ;
+    owl:versionInfo "2.0 stable", "0.2 is now subclass of Person, moved several attributes to Person - 25.5.2007 0.1 initial creation - 24.05.07" ;
+    rdfs:subClassOf <Person> .
+
+<Publication> a owl:Class ;
+    rdfs:label "Publication"@en, "Veröffentlichung"@de ;
+    rdfs:comment "Diese Konzept beschreibt eine Publikation"@de, "The concept Person describes a publication"@en ;
+    owl:versionInfo "0.1 initial creation date: 24.05.2007", "2.0 stable", "version 0.2  10.03.2008", "13.01.2015 changed as subclass of Document" ;
+    rdfs:subClassOf <Document> .
+
+<QualificationDocument> a owl:Class ;
+    rdfs:label "Qualifikationsschrift"@de, "Qualification Paper"@en ;
+    rdfs:comment "The concept Person describes a qualification paper"@en, "Diese Konzept beschreibt eine Qualifikationsschrift"@de ;
+    owl:versionInfo "0.1 initial creation date: 24.05.2007", "2.0 stable", "13.01.2015 changed as subclass of Document" ;
+    rdfs:subClassOf <Document> .
+
+<Document> a owl:Class ;
+    rdfs:label "Dokument"@de, "Document"@en ;
+    rdfs:comment "Dokument einer Periode"@de, "document of a period"@en ;
+    owl:versionInfo "0.1 initial creation date: 13.01.2015" .
+
+<SocialRole> a owl:Class ;
+    rdfs:label "Social Role"@en, "Gesellschaftliche Funktion"@de ;
+    rdfs:comment "The concept Person describes a social role"@en, "Diese Konzept beschreibt eine gesellschaftliche Funktion"@de ;
+    owl:versionInfo "0.1 initial creation date: 24.05.2007", "2.0 stable" ;
+    rdfs:subClassOf <PeriodOfLife> .
+
+<Qualification> a owl:Class ;
+    rdfs:label "Qualification"@en, "Qualifikation"@de ;
+    rdfs:comment "The concept Person describes a qualification"@en, "Diese Konzept beschreibt eine Qualifikation, z.B. Promotion oder Habilitation"@de ;
+    owl:versionInfo "0.1 initial creation date: 04.02.2015" ;
+    rdfs:subClassOf <PeriodOfLife> .
+
+<Membership> a owl:Class ;
+    rdfs:label "Membership"@en, "Mitgliedschaft"@de ;
+    rdfs:comment "The concept Person describes a membership"@en, "Diese Konzept beschreibt eine Mitgliedschaft oder Funktion"@de ;
+    owl:versionInfo "0.1 initial creation date: 09.02.2015" ;
+    rdfs:subClassOf <PeriodOfLife> .
+
+<Honour> a owl:Class ;
+    rdfs:label "Honour"@en, "Ehrung"@de ;
+    rdfs:comment "The concept Person describes a honour"@en, "Diese Konzept beschreibt eine Ehrung"@de ;
+    owl:versionInfo "0.1 initial creation date: 09.02.2015" ;
+    rdfs:subClassOf <PeriodOfLife> .
+
+<Study> a owl:Class ;
+    rdfs:label "Studium"@de, "Study"@en ;
+    rdfs:comment "The concept Person describes a study"@en, "Diese Konzept beschreibt ein Studium"@de ;
+    owl:versionInfo "0.1 initial creation date: 24.05.2007", "2.0 stable", "13.01.2015 changed as subclass of PeriodOfLife" ;
+    rdfs:subClassOf <PeriodOfLife> .
+
+<academyType> a owl:DatatypeProperty ;
+    rdfs:label "Hochschultyp"@de, "Academy type"@en ;
+    rdfs:domain <Academy> ;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#string> ;
+    rdfs:comment "Describes the academy type in more detail"@en, "Beschreibt den Typ der Hochschule genauer"@de .
+
+<additionToSurname> a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:label "Namenszusatz"@de, "Additions to Surename"@en ;
+    rdfs:domain <Person> ;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#string> ;
+    rdfs:comment "Namenszusätze sind zum Beispiel von, zu, etc."@de, "Additions to the surname can be of, etc."@en ;
+    owl:versionInfo "2.0 stable", "0.2 changed Domain from Professor to Person 0.1 initial creation - 24.05.07" .
+
+<alternativeWritingOfSurname> a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:label "Alternative Namensschreibweisen"@de, "Alternative writings of the surname"@en ;
+    rdfs:domain <Person> ;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#string> ;
+    rdfs:comment "For Example Meier, Meyer, Maier"@en, "Bsp: Meier, Meyer, Maier"@de ;
+    owl:versionInfo "2.0 under discussion", "0.1 initial creation - 24.05.07", "0.2 changed Domain from Professor to Person" ;
+    <http://ns.ontowiki.net/SysOnt/order> "20" .
+
+<archiveCode> a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:label "Archivkürzel"@de, "Archive Code"@en ;
+    rdfs:domain <Archive> ;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#string> ;
+    rdfs:comment "Describes the code of the archive"@en, "Beschreibt das Kürzel des Archievs"@de ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation - 31.03.2008" .
+
+<bodyPlace> a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:label "Ort der Körperschaft"@de, "Body place"@en ;
+    rdfs:domain <Body> ;
+    rdfs:range <http://ns.aksw.org/spatialHierarchy/SpatialArea> ;
+    rdfs:comment "Relation to a place of a body, this could be eather a City, a District or a Country"@en, "Beziehung zu einem Ort einer Körperschaft. Dies kann eine Stadt, eine Verwaltungseinheit oder ein Land sein"@de ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation - 19.01.2010" .
+
+<cognateBody> a owl:ObjectProperty ;
+    rdfs:label "Verwandte Körperschaft"@de, "cognate body"@en ;
+    rdfs:domain <Body> ;
+    rdfs:range <Body> ;
+    rdfs:comment "verwandte Institutionen (manche Akademien wurden mehrfach umbenannt bzw. aufgelöst und wenig später neu gegründet; diese sollten dann verlinkt werden können) (Related Institutions)" ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation - 10.12.2009", "04.02.2015 change to ObjectProperty" .
+
+<consistsOf> a owl:ObjectProperty ;
+    rdfs:label "eine Institution besteht aus"@de, "institution consists of"@en ;
+    rdfs:domain <Body> ;
+    rdfs:range <Body> ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation - 24.05.2007" ;
+    owl:inverseOf <is-part-of> .
+
+<date> a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:label "Date"@en, "Datum"@de, "date"@en ;
+    rdfs:domain <PeriodOfLife> ;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#date>, <http://www.w3.org/2001/XMLSchema#gDay>, <http://www.w3.org/2001/XMLSchema#gMonth>, <http://www.w3.org/2001/XMLSchema#gMonthDay>, <http://www.w3.org/2001/XMLSchema#gYear>, <http://www.w3.org/2001/XMLSchema#gYearMonth> ;
+    rdfs:comment "The date within a period of life"@en, "Zeitpunkt innerhalb eines Lebensabschnitts"@de, "0.1 initial creation - 21.11.13"^^<http://www.w3.org/2001/XMLSchema#string> ;
+    owl:versionInfo "2.0 initial creation date: 09.09.2013" .
+
+<denomination> a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:label "religious denomination"@en, "Konfession"@de ;
+    rdfs:domain <Person> ;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#string> ;
+    owl:versionInfo "2.0 stable", "0.2 changed Domain from Professor to Person", "0.1 initial creation - 24.05.2007" ;
+    <http://ns.ontowiki.net/SysOnt/order> "140" .
+
+<dissolved> a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:label "Auflösungsjahr"@de, "Dissolved (year)"@en ;
+    rdfs:domain <Body> ;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#date>, <http://www.w3.org/2001/XMLSchema#gYear>, <http://www.w3.org/2001/XMLSchema#gYearMonth> ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation - 10.12.2009" .
+
+<familyAdoptiveChild> a owl:ObjectProperty ;
+    rdfs:label "Adoptive child"@en, "Adoptivkind"@de ;
+    rdfs:domain <Family> ;
+    rdfs:range <Person> ;
+    rdfs:comment "A property that adds a adoptive child to a family"@en, "Ein Prädikat zur Angabe eines zur Familie gehörenden Adoptivkindes"@de ;
+    owl:versionInfo "2.0 stable not often used so far", "0.1 initial creation date: 19.01.2010" .
+
+<familyChild> a owl:ObjectProperty ;
+    rdfs:label "Kind"@de, "Child"@en ;
+    rdfs:domain <Family> ;
+    rdfs:range <Person> ;
+    rdfs:comment "Ein Prädikat zur Angabe eines zur Familie gehörenden Kindes"@de, "A property that adds a child to a family"@en ;
+    owl:versionInfo "2.0 stable not often used so far", "0.1 initial creation date: 19.01.2010" .
+
+<familyCohabitant> a owl:ObjectProperty ;
+    rdfs:label "Cohabitant"@en, "Lebenspartner"@de ;
+    rdfs:domain <Family> ;
+    rdfs:range <Person> ;
+    rdfs:comment "Ein Prädikat zur Angabe eines Lebenspartners einer Familie"@de, "A proprtery that adds a cohabitant to a family"@en ;
+    owl:versionInfo "2.0 stable not often used so far", "0.1 initial creation date: 19.01.2010" .
+
+<familyFosterChild> a owl:ObjectProperty ;
+    rdfs:label "Foster child"@en, "Pflegekind"@de ;
+    rdfs:domain <Family> ;
+    rdfs:range <Person> ;
+    rdfs:comment "A property that adds a foster child to a family"@en, "Ein Prädikat zur Angabe eines zur Familie gehörenden Pflegekindes"@de ;
+    owl:versionInfo "2.0 stable not often used so far", "0.1 initial creation date: 19.01.2010" .
+
+<familyParent> a owl:ObjectProperty ;
+    rdfs:label "Parent"@en, "Eltern"@de ;
+    rdfs:domain <Family> ;
+    rdfs:range <Person> ;
+    rdfs:comment "A proprtery that adds a parent to a family"@en, "Ein Prädikat zur Angabe eines Elternteils einer Familie"@de ;
+    owl:versionInfo "2.0 stable not often used so far", "0.1 initial creation date: 19.01.2010" .
+
+<founded> a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:label "Gründungsjahr"@de, "founded (year)"@en ;
+    rdfs:domain <Body> ;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#date>, <http://www.w3.org/2001/XMLSchema#gYear>, <http://www.w3.org/2001/XMLSchema#gYearMonth> ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation - 10.12.2009" .
+
+<from> a owl:DatatypeProperty ;
+    rdfs:label "From"@en, "Von"@de ;
+    rdfs:domain <PeriodOfLife> ;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#date>, <http://www.w3.org/2001/XMLSchema#gDay>, <http://www.w3.org/2001/XMLSchema#gMonth>, <http://www.w3.org/2001/XMLSchema#gMonthDay>, <http://www.w3.org/2001/XMLSchema#gYear>, <http://www.w3.org/2001/XMLSchema#gYearMonth> ;
+    rdfs:comment "Das Startdatum eines Lebensabschnitts"@de, "The date of the beginning of a period of life"@en ;
+    owl:versionInfo "0.1 initial creation date:  24.05.2007", "2.0 stable other types added" .
+
+<fullAcademicalTitle> a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:label "voller akademischer Titel"@de, "full academical title"@en ;
+    rdfs:domain <Person> ;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#string> ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation - 24.05.2007" ;
+    <http://ns.ontowiki.net/SysOnt/order> "30" .
+
+<functionInOrganisation> a owl:DatatypeProperty ;
+    rdfs:label "function in organisation"@en, "Funktion in der Organisation"@de ;
+    rdfs:domain <SocialRole> ;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#string> ;
+    owl:versionInfo "2.0 stable", "0.2 changed to DatatypeProperty - 13.11.07 by TR", "0.1 initial creation - 25.05.2007" .
+
+<furtherInformation> a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:label "weitere Informationen"@de, "further information"@en ;
+    rdfs:domain <Person> ;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#string> ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation - 28.06.2007" ;
+    <http://ns.ontowiki.net/SysOnt/order> "340" .
+
+<gender> a owl:DatatypeProperty ;
+    rdfs:label "Gender"@en, "Geschlecht"@de ;
+    rdfs:domain <Person> ;
+    rdfs:comment "Das Geschlecht einer Person"@de, "Important to get family relations lie mother and father", "Gender of a person"@en ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation date: 19.01.2009" .
+
+<graduationType> a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:label "graduation type"@en, "Abitur Schulart"@de ;
+    rdfs:domain <Graduation> ;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#string> ;
+    rdfs:comment "Bsp: Gymnasium, etc." ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation - 24.05.2007" ;
+    <http://ns.ontowiki.net/SysOnt/order> "290" .
+
+<hasPeriod> a owl:ObjectProperty ;
+    rdfs:label "has period"@en, "hat Lebensabschnitt"@de ;
+    rdfs:domain <Person> ;
+    rdfs:range <PeriodOfLife> ;
+    rdfs:comment "This property connects a person to their period of life"@en, "Ein Prädikat, das einer Person einen Lebensabschnitt zuordnet"@de ;
+    owl:versionInfo "0.2 change to professor - 14.02.2008", "0.1 initial creation date:  24.05.2007", "0.3 changed back to person - 17.03.2008", "2.0 stable changed from has-periods to has-period on 09.09.2013" .
+
+<hasTutor> a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:label "Betreuer"@de, "tutor"@en ;
+    rdfs:domain <QualificationDocument> ;
+    rdfs:range <Person> ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation - 24.05.2007" ;
+    owl:inverseOf <is-tutor> .
+
+<isPartOf> a owl:ObjectProperty ;
+    rdfs:label "eine Institution gehört zu"@de, "an institution is part of"@en ;
+    rdfs:domain <Body> ;
+    rdfs:range <Body> ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation - 24.05.2007" ;
+    owl:inverseOf <consists-of> .
+
+<isTutor> a owl:ObjectProperty ;
+    rdfs:label "ist Betreuer"@de, "is tutor"@en ;
+    rdfs:domain <Person> ;
+    rdfs:range <QualificationDocument> ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation - 26.06.2007" ;
+    owl:inverseOf <has-tutor> ;
+    <http://ns.ontowiki.net/SysOnt/order> "330" .
+
+<lectureLink> a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:label "Lectures"@en, "Vorlesungen"@de ;
+    rdfs:domain <PeriodOfLife>, <Person> ;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#string> ;
+    rdfs:comment "This property is used for links to Lectures. The main use is to link into http://histvv.uni-leipzig.de/." ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation - 24.05.2007" ;
+    <http://ns.ontowiki.net/SysOnt/order> "186" .
+
+<literature> a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:label "biographical, autobiographical literature"@en, "biographische, autobiograhpische Literatur"@de ;
+    rdfs:domain <Person> ;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#string> ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation - 28.06.2007" ;
+    <http://ns.ontowiki.net/SysOnt/order> "260" .
+
+<periodBody> a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:label "Related Body"@en, "Zugehörige Körperschaft"@de ;
+    rdfs:domain <PeriodOfLife> ;
+    rdfs:range <Body> ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation - 11.12.2009; replaces prof-has-to-do-with", "05.02.2015 - Rename to periodBody" .
+
+<periodDocument> a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:label "Related Document"@en, "Zugehöriges Dokument"@de ;
+    rdfs:domain <PeriodOfLife> ;
+    rdfs:range <Document> ;
+    owl:versionInfo "initial creation - 14.01.2015;" .
+
+<note> a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:label "note"@en, "Vermerk, Hinweis"@de ;
+    rdfs:domain <Person> ;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#string> ;
+    rdfs:comment "zusätzliche Informationen die nirgends sonst eingetragen werden können"@de, "additional information that does not fit elsewhere"@en ;
+    owl:versionInfo "2.0 stable", "0.2 changed Domain from Professor to Person", "0.1 initial creation - 24.05.2007" ;
+    <http://ns.ontowiki.net/SysOnt/order> "390" .
+
+<isPublic> a owl:DatatypeProperty ;
+    rdfs:label "is public"@en, "ist öffentlich"@de ;
+    rdfs:domain <Person> ;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#boolean>;
+    owl:versionInfo "0.1 initial creation - 17.02.2015" .
+
+<reviewed> a owl:DatatypeProperty ;
+    rdfs:label "reviewed"@en, "überprüft"@de ;
+    rdfs:domain <Person> ;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#boolean>;
+    owl:versionInfo "0.1 initial creation - 17.02.2015" .
+
+<organisationName> a owl:DatatypeProperty ;
+    rdfs:label "Name of organisation"@en, "Organisationsname"@de ;
+    rdfs:domain <SocialRole> ;
+    rdfs:comment "Name of the organisation"@en, "Der Name der Organisation"@de ;
+    owl:versionInfo "0.1 initial creation date: 24.05.2007", "2.0 under discussion" .
+
+<periodNote> a owl:DatatypeProperty ;
+    rdfs:label "Bemerkung"@de, "Notes"@en ;
+    rdfs:domain <PeriodOfLife> ;
+    rdfs:comment "Bemerkungen zu einem Lebensabschnitt"@de, "Notes about period of life"@en ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation date:  31.03.2008" .
+
+<periodPlace> a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:label "Ort des Lebensabschnitts"@de, "Period place"@en ;
+    rdfs:domain <PeriodOfLife> ;
+    rdfs:range <http://ns.aksw.org/spatialHierarchy/SpatialArea> ;
+    rdfs:comment "Relation to a place of a period of life, this could be eather a City, a District or a Country"@en, "Beziehung zu einem Ort eines Lebensabschnitts. Dies kann eine Stadt, eine Verwaltungseinheit oder ein Land sein"@de ;
+    owl:versionInfo "2.0 initial creation - 09.09.2013, stable" .
+
+<picture> a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:label "Bild"@de, "picture"@en ;
+    rdfs:domain <Picture> ;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#string> ;
+    rdfs:comment "Web-URL zum Bild"@de ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation - 24.05.2007" ;
+    <http://ns.ontowiki.net/SysOnt/order> "150" .
+
+<pictureArchive> a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:label "picture archive"@en, "Bildherkunft"@de ;
+    rdfs:domain <Picture> ;
+    rdfs:range <Archive> ;
+    owl:versionInfo "13.01.2015 initial creation as replacement for pictureArchive" .
+
+<hasPicture> a owl:ObjectProperty, owl:FunctionalProperty ;    
+    rdfs:label "has picture"@en, "hat Bild"@de ;
+    rdfs:domain <Person> ;
+    rdfs:range <Picture> ;
+    owl:versionInfo "2.0 stable", "0.2 changed - 31.03.08", "0.1 initial creation - 10.03.2008; replaces prof-has-to-do-with", "13.01.2015 changed to class archive relation" ;
+    <http://ns.ontowiki.net/SysOnt/order> "160" .
+
+<pictureCredits> a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:label "Bildnachweis"@de, "picture credits"@en ;
+    rdfs:domain <Picture> ;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#string> ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation - 24.05.2007" ;
+    <http://ns.ontowiki.net/SysOnt/order> "180" .
+
+<pictureKey> a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:label "picture key"@en, "Bildnummer"@de ;
+    rdfs:domain <Picture> ;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#string> ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation - 10.03.2008" ;
+    <http://ns.ontowiki.net/SysOnt/order> "170" .
+
+<pid> a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:label "Person ID"@de, "person id"@en ;
+    rdfs:domain <Person> ;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#int> ;
+    rdfs:comment "kuenstliche ID als Primaerschluessel fuer Person. Sollte automatisch erstellt werden."@de ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation - 25.05.2007" ;
+    <http://ns.ontowiki.net/SysOnt/order> "50" .
+
+<gnd> a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:label "PND"@en, "PND"@de ;
+    rdfs:domain <Person> ;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#string> ;
+    rdfs:comment "Personennamendatei" ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation - 10.03.2008", "rename from pnd to gnd - 15.01.2016" ;
+    <http://ns.ontowiki.net/SysOnt/order> "370" .
+
+<profession> a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:label "Beruf"@de, "Profession"@en ;
+    rdfs:domain <Person> ;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#string> ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation - 12.02.2010" .
+
+<reference> a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:label "publication reference"@en, "Veröffentlichung Quellenangabe"@de ;
+    rdfs:domain <Publication> ;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#string> ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation - 25.05.2007" .
+
+<published> a owl:ObjectProperty ;
+    rdfs:label "published"@en, "veröffentlicht"@de ;
+    rdfs:domain <Person> ;
+    rdfs:range <Document> ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation - 25.05.2007", "13.01.2015 changed as relation to Person" .
+
+<academicalTitle> a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:label "Qualifikationsschrift - akademischer Titel"@de, "qualificationpaper academical title"@en ;
+    rdfs:domain <QualificationDocument> ;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#string> ;
+    owl:versionInfo "0.1 initial creation - 24.05.2007", "2.0 stable changed from bodyPlaceom qualiPaperAcademicalTitle to qualificationPaperAcademicalTitle on 09.09.2013" .
+
+<subject> a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:label "Qualifikationsschrift - Fach"@de, "qualification paper - subject"@en ;
+    rdfs:domain <QualificationDocument> ;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#string> ;
+    owl:versionInfo "0.1 initial creation - 24.05.2007", "2.0 stable changed from qualiPaperSubject to qualificationPaperSubject on 09.09.2013" .
+
+<title> a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:label "title of qualificationpaper"@en, "Titel der Qualifikationsschrift"@de ;
+    rdfs:domain <Document> ;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#string> ;
+    owl:versionInfo "0.1 initial creation - 24.05.2007", "2.0 stable changed from qualiPaperTitle to qualificationPaperTitle on 09.09.2013" .
+
+<type> a owl:DatatypeProperty ;
+    rdfs:label "Art der Qualifikationsschrift"@de, "qualification paper type"@en ;
+    rdfs:domain <QualificationDocument> ;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#string> ;
+    owl:versionInfo "0.1 initial creation - 24.05.2007", "2.0 stable changed from qualiPaperType to qualificationPaperType on 09.09.2013", "0.2 changed to DatatypeProperty - 13.11.2007 by TR" .
+
+<veniaLegendi> a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:label "qualificationpaper - venia legendi"@en, "Qualifikationsschrift - Venia Legendi"@de ;
+    rdfs:domain <QualificationDocument> ;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#string> ;
+    owl:versionInfo "0.1 initial creation - 24.05.2007", "2.0 stable changed from qualiPaperVeniaLegendi to qualificationPaperVeniaLegendi on 09.09.2013" .
+
+<reasonForResigning> a owl:DatatypeProperty ;
+    rdfs:label "Grund des Austritts"@de, "reason for resigning"@en ;
+    rdfs:domain <Career> ;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#string> ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation - 24.05.2007", "0.2 changed to DatatypeProperty - 13.11.2007 by TR" .
+
+<references> a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:label "Quellennachweis"@de, "reference"@en ;
+    rdfs:domain <Person> ;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#string> ;
+    owl:versionInfo "2.0 stable", "0.2 changed Domain from Professor to Person", "0.1 initial creation - 24.05.2007" ;
+    <http://ns.ontowiki.net/SysOnt/order> "380" .
+
+<subjectStudied> a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:label "Subject studied"@en, "Studiumsthema"@de, "Fach"@de, "subject, the professor studied"@en ;
+    rdfs:domain <Study> ;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#string> ;
+    rdfs:comment "Das Thema/Gebiet des Studiums"@de, "The subject of Study"@en ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation date:  24.05.2007", "0.1 initial creation - 24.05.2007" .
+
+<subjectsTaught> a owl:DatatypeProperty ;
+    rdfs:label "subjects the professor taught"@en, "Fächer die Gelehrt wurden"@de ;
+    rdfs:domain <Career> ;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#string> ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation - 24.05.2007" .
+
+<surname> a owl:DatatypeProperty ;
+    rdfs:label "Surname"@en, "Nachname"@de ;
+    rdfs:domain <Person> ;
+    rdfs:comment "Nachname einer Person"@de, "The surname of a person"@en ;
+    owl:versionInfo "0.1 initial creation date: 24.05.2007", "2.0 stable", "version 0.2  10.03.2008" .
+
+<forename> a owl:DatatypeProperty ;
+    rdfs:label "Forename"@en, "Vorname"@de ;
+    rdfs:domain <Person> ;
+    rdfs:comment "Vorname(n) einer Person, getrennt mit Leerzeichen"@de, "Forename(s) of a person, seperated by space"@en ;
+    owl:versionInfo "0.1 initial creation date: 18.05.2015" .
+
+<firstName> a owl:DatatypeProperty ;
+    rdfs:label "First name"@en, "Rufname"@de ;
+    rdfs:domain <Person> ;
+    rdfs:comment "Rufname einer Person"@de, "given name of a person"@en ;
+    owl:versionInfo "0.1 initial creation date: 18.05.2015" .
+
+<publicationReference> a owl:DatatypeProperty ;
+    rdfs:label "publication reference"@en, "Publikationsverzeichnisse"@de ;
+    rdfs:domain <Person> ;
+    rdfs:comment "Publikationsverzeichnisse einer Person"@de, "publication reference of a person"@en ;
+    owl:versionInfo "0.1 initial creation date: 09.02.2015" .
+
+<firstName> a owl:DatatypeProperty ;
+    rdfs:label "First Name"@en, "Rufname"@de ;
+    rdfs:domain <Person> ;
+    rdfs:comment "Rufname einer Person"@de, "The given first name of a person"@en ;
+    owl:versionInfo "0.1 initial creation date: 29.01.2015" .
+
+<to> a owl:DatatypeProperty ;
+    rdfs:label "Bis"@de, "To"@en ;
+    rdfs:domain <PeriodOfLife> ;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#date>, <http://www.w3.org/2001/XMLSchema#gDay>, <http://www.w3.org/2001/XMLSchema#gMonth>, <http://www.w3.org/2001/XMLSchema#gMonthDay>, <http://www.w3.org/2001/XMLSchema#gYear>, <http://www.w3.org/2001/XMLSchema#gYearMonth> ;
+    rdfs:comment "Das Enddatum eines Lebensabschnitts"@de, "The date of the ending of a period of life"@en ;
+    owl:versionInfo "0.1 initial creation date:  24.05.2007", "2.0 stable other types added" .
+
+<typeOfBody> a owl:DatatypeProperty ;
+    rdfs:label "Typ der Körperschaft"@de, "type of body"@en ;
+    rdfs:domain <Body> ;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#string> ;
+    owl:versionInfo "2.0 stable", "0.1 initial creation - 24.05.2007" .
+
+<webLinks> a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:label "links to (e.g.Wikipedia) ("@en, "Links (e.g.Wikipedia)"@de ;
+    rdfs:domain <Document>, <Person>, <Body> ;
+    rdfs:range <http://www.w3.org/2001/XMLSchema#string> ;
+    rdfs:comment "This property is used for links into the WWW. e.g. Wikipedia." ;
+    owl:versionInfo "0.1 initial creation - 24.05.2007", "2.0 stable changed from webLinks to webLink on 09.09.2013" ;
+    <http://ns.ontowiki.net/SysOnt/order> "185" .
+
