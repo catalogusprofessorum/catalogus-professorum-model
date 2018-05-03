@@ -357,7 +357,7 @@
     rdfs:label "Related Body"@en, "Zugehörige Körperschaft"@de ;
     rdfs:domain <PeriodOfLife> ;
     rdfs:range <Body> ;
-    owl:versionInfo  "0.1 initial creation - 11.12.2009"
+    owl:versionInfo  "0.1 initial creation - 11.12.2009".
 
 <note> a owl:DatatypeProperty, owl:FunctionalProperty ;
     rdfs:label "note"@en, "Vermerk, Hinweis"@de ;
@@ -567,8 +567,8 @@
 <membership> rdfs:label "Mitgliedschaft"@de, "membership"@en .
 <pictureArchive> rdfs:label "Bildherkunft"@de, "picture archive"@en .
 <organizationType> rdfs:label "Organisationstyp"@de, "type of organization"@en .
-<birthAdministrativeDistrict> rdfs:label "Geburtsland"@de, "birth state"@en ;
-<deathAdministrativeDistrict> rdfs:label "Todesland"@de, "death state"@en ;
+<birthAdministrativeDistrict> rdfs:label "Geburtsland"@de, "birth state"@en .
+<deathAdministrativeDistrict> rdfs:label "Todesland"@de, "death state"@en .
 <fatherName> rdfs:label "Vatersname"@de, "fathers name"@en .
 <locatedAtAdministrativeDistrict> rdfs:label "Staat"@de, "is located at State"@en, "Bsp: Sachsen, Bayern"@de .
 <motherName> rdfs:label "mothers name"@en, "Mutters Name"@de .
