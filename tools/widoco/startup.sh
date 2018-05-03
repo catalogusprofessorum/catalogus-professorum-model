@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd /var/www
+
 if [ ! -f widoco-1.4.3-jar-with-dependencies.jar ]; then
     wget https://github.com/dgarijo/Widoco/releases/download/v1.4.3/widoco-1.4.3-jar-with-dependencies.jar
 fi
@@ -12,7 +14,7 @@ wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiens
 wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/model/references.html -O references.html
 wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/model/authors.html -O authors.html
 
-java -jar widoco-1.4.3-jar-with-dependencies.jar -ontFile cpm-2.ttl -lang en-de -webVowl -rewriteAll -includeAnnotationProperties -outFolder cpm-2
+java -jar widoco-1.4.3-jar-with-dependencies.jar -ontFile cpm-2.ttl -lang en-de -webVowl -rewriteAll -includeAnnotationProperties -outFolder html/cpm-2/
 
 #Post Processing
 
