@@ -53,4 +53,4 @@ echo '<?php header("HTTP/1.1 303 See Other");header("Location: http://$_SERVER['
 echo '<?php header("HTTP/1.1 303 See Other");header("Location: http://$_SERVER['HTTP_HOST']/cpm-2/index-en.html"); ?>' > ./html/cpm-2/index.php
 
 #Provide Generating link
-echo "<?php exec(\"cd ..\.. && startup.sh\"); ?><a href=\"/\">index</a>" > ./html/cpm-2/generate.php
+echo "<?php exec(\"cd ..\.. && startup.sh\"); ?><a href=\"index-en.html\">index</a>" > ./html/cpm-2/generate.php
