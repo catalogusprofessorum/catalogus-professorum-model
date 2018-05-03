@@ -1,4 +1,4 @@
-@base <http://catalogus-professorum.org/cpm-2/> .
+@base <http://catalogus-professorum.org/cpm/2/> .
 @prefix hp: <http://purl.org/voc/hp/> .
 @prefix cc: <http://creativecommons.org/ns#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
