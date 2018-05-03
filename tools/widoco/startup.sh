@@ -24,6 +24,8 @@ wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiens
 cd /var/www
 java -jar widoco-1.4.3-jar-with-dependencies.jar -ontFile cpm-1/ontology.ttl -lang en-de -webVowl -rewriteAll -includeAnnotationProperties -outFolder html/cpm/1/
 
+sleep 30
+
 #Post Processing
 
 #German Translations
@@ -34,6 +36,11 @@ sed s/Download\ serialization/Download\ in\ verschiedenen\ Datenformaten/g -i ./
 sed s/License\:/Datenlizenz\:/g -i ./html/cpm/1/index-de.html
 sed s/Visualization/Darstellung\ als\ Graph/g -i ./html/cpm/1/index-de.html
 sed s/Acknowledgements/Danksagung/g -i ./html/cpm/1/index-de.html
+
+#Add latest version
+sed s/\<dd\>Version/\<dd\>\<a\ href\=\"http\:\\/\\/catalogus-professorum.org\\/cpm\\/2\\/\"\>Version\ 2\.1\ \-\ 2018\-04\-26\ \-\ Thomas\ Riechert\ \(Latest\)\<\\/a\>\<\\/dd\>\<dd\>Version/g -i ./html/cpm/1/index-en.html
+sed s/\<dd\>Version/\<dd\>\<a\ href\=\"http\:\\/\\/catalogus-professorum.org\\/cpm\\/2\\/\"\>Version\ 2\.1\ \-\ 2018\-04\-26\ \-\ Thomas\ Riechert\ \(Aktuelle Version\)\<\\/a\>\<\\/dd\>\<dd\>Version/g -i ./html/cpm/1/index-de.html
+
 
 #Description and Introduction Sections
 cp cpm-1/description-en.html ./html/cpm/1/sections/description-en.html
@@ -73,6 +80,7 @@ wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiens
 
 cd /var/www
 java -jar widoco-1.4.3-jar-with-dependencies.jar -ontFile cpm-2/ontology.ttl -lang en-de -webVowl -rewriteAll -includeAnnotationProperties -outFolder html/cpm/2/
+sleep 30
 
 #Post Processing
 
