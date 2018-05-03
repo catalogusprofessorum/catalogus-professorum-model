@@ -17,6 +17,7 @@
 <> a owl:Ontology;
     rdfs:label "Catalogus Professorum Model - Version 2.1 (CPM)";
     dc:title "Catalogus Professorum Model - Version 2.1 (CPM)";
+    rdfs:comment "The Catalogus Professorum Model defines the Model of the Catalogus Professorum Lipsiensium, the professors catalog of the University of Leipzig, Germany.";
     foaf:maker team:UlfMorgenstern, team:ChristianRau, team:ChristianAugustin, team:FrederikeBulka, team:LydiaMueller, team:ThomasRiechert, team:SimeonAckermann, team:EdgardMarx, team:NormanRadtke, team:AndreasNareike, team:NatanaelArndt ;
     doap:maintainer team:ThomasRiechert;
     doap:homepage <https://catalogus-professorum.org/project/>;
@@ -24,16 +25,16 @@
     vann:changes <https://github.com/pcp-on-web/catalogus-professorum-lipsiensium/model/commits/master/cpm-2.ttl>;
     vann:preferredNamespacePrefix "cpm";
     vann:preferredNamespaceUri "http://catalogus-professorum.org/cpm-2/";
-    <http://purl.org/dc/terms/modified> "2018-04-26" ;
-    <http://purl.org/dc/terms/modified> "2013-09-09" ;
-    <http://purl.org/dc/terms/modified> "2013-04-24" ;
-    <http://purl.org/dc/terms/modified> "2007-05-24" ;
-    <http://purl.org/dc/terms/modified> "2013-09-10" ;
-    <http://purl.org/dc/terms/modified> "2013-09-10" ;
-    <http://purl.org/dc/terms/modified> "2013-09-10" ;
+    dct:modified "2018-04-26" ;
+    dct:modified "2013-09-09" ;
+    dct:modified "2013-04-24" ;
+    dct:modified "2007-05-24" ;
+    dct:modified "2013-09-10" ;
+    dct:modified "2013-09-10" ;
+    dct:modified "2013-09-10" ;
     owl:versionInfo "Version 2.1 - 2018-04-26 - Thomas Riechert", "Version 2.0 - 2013-09-09 - Thomas Riechert", "Version 1.9 - 2013-04-24 - Thomas Riechert", "Version 1.0 (inital) - 2007-05-24 - Thomas Riechert" ;
     owl:imports <http://ns.aksw.org/spatialHierarchy/> ;
-    <http://purl.org/dc/terms/license> "http://creativecommons.org/licenses/by/4.0/" .
+    dct:license "http://creativecommons.org/licenses/by/4.0/" .
 
 <AcademicSociety> a owl:Class ;
     rdfs:label "Wissenschaftliche Gesellschaft"@de, "Academic Society"@en ;
