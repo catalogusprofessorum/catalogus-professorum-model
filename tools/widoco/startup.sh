@@ -53,5 +53,5 @@ echo '<?php header("HTTP/1.1 303 See Other");header("Location: http://$_SERVER['
 echo '<?php header("HTTP/1.1 303 See Other");header("Location: http://$_SERVER['HTTP_HOST']/cpm-2/index-en.html"); ?>' > ./html/cpm-2/index.php
 
 #Provide Access rights
-chmod a+rw -R *
-chown www-data:www-data -R *
+#chmod a+rw -R *
+#chown www-data:www-data -R *
