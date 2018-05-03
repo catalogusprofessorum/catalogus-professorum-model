@@ -52,3 +52,5 @@ sed s/\$\(\"\#abstract\"\)\.load/\$\(\"\#authors\"\)\.load\(\"sections\\/authors
 echo '<?php header("HTTP/1.1 303 See Other");header("Location: http://$_SERVER['HTTP_HOST']/cpm-2/index-en.html"); ?>' > ./html/index.php
 echo '<?php header("HTTP/1.1 303 See Other");header("Location: http://$_SERVER['HTTP_HOST']/cpm-2/index-en.html"); ?>' > ./html/cpm-2/index.php
 
+#Provide Generating link
+echo "<?php exec(\"cd ..\.. && startup.sh\"); ?><a href=\"/\">index</a>" > ./html/cpm-2/generate.php
