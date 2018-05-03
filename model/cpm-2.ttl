@@ -16,6 +16,7 @@
 
 <> a owl:Ontology;
     rdfs:label "Catalogus Professorum Model - Version 2.1 (CPM)";
+    dc:title "Catalogus Professorum Model - Version 2.1 (CPM)";
     foaf:maker team:UlfMorgenstern, team:ChristianRau, team:ChristianAugustin, team:FrederikeBulka, team:LydiaMueller, team:ThomasRiechert, team:SimeonAckermann, team:EdgardMarx, team:NormanRadtke, team:AndreasNareike, team:NatanaelArndt ;
     doap:maintainer team:ThomasRiechert;
     doap:homepage <https://catalogus-professorum.org/project/>;
