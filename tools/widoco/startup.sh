@@ -39,7 +39,7 @@ sed s/Acknowledgements/Danksagung/g -i ./html/cpm/1/index-de.html
 
 #Add latest version
 sed s/\<dd\>Version/\<dd\>\<a\ href\=\"http\:\\/\\/catalogus-professorum.org\\/cpm\\/2\\/\"\>Version\ 2\.1\ \-\ 2018\-04\-26\ \-\ Thomas\ Riechert\ \(Latest\)\<\\/a\>\<\\/dd\>\<dd\>Version/g -i ./html/cpm/1/index-en.html
-sed s/\<dd\>Version/\<dd\>\<a\ href\=\"http\:\\/\\/catalogus-professorum.org\\/cpm\\/2\\/\"\>Version\ 2\.1\ \-\ 2018\-04\-26\ \-\ Thomas\ Riechert\ \(Aktuelle Version\)\<\\/a\>\<\\/dd\>\<dd\>Version/g -i ./html/cpm/1/index-de.html
+sed s/\<dd\>Version/\<dd\>\<a\ href\=\"http\:\\/\\/catalogus-professorum.org\\/cpm\\/2\\/\"\>Version\ 2\.1\ \-\ 2018\-04\-26\ \-\ Thomas\ Riechert\ \(Aktuelle\ Version\)\<\\/a\>\<\\/dd\>\<dd\>Version/g -i ./html/cpm/1/index-de.html
 
 
 #Description and Introduction Sections
