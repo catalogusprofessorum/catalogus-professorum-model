@@ -9,7 +9,7 @@ cd /var/www
 wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/model/cpm-$ONTO/ontology.ttl -O ontology-cpm-$ONTO.ttl
 
 #generate documentation for Version 1.9
-java -jar widoco-1.4.3-jar-with-dependencies.jar -ontFile ontology-cpm-1.ttl -lang en-de -webVowl -rewriteAll -includeAnnotationProperties -outFolder html/cpm/$ONTO/
+java -jar widoco-1.4.3-jar-with-dependencies.jar -ontFile ontology-cpm-$ONTO.ttl -lang en-de -webVowl -rewriteAll -includeAnnotationProperties -outFolder html/cpm/$ONTO/
 
 #warte 20 Sekunden
 echo "Documentation generated. Wait now 20s to copy additional files."  
@@ -18,15 +18,19 @@ sleep 20
 #start post processing
 
 #extend the generated documentation
-wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/model/cpm-1/description-en.html -O html/cpm/$ONTO/sections/description-en.html
-wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/model/cpm-1/description-de.html -O html/cpm/$ONTO/sections/description-de.html
-wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/model/cpm-1/references.html -O html/cpm/$ONTO/sections/references.html
+wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/model/cpm-$ONTO/description-en.html -O html/cpm/$ONTO/sections/description-en.html
+wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/model/cpm-$ONTO/description-de.html -O html/cpm/$ONTO/sections/description-de.html
+
+#add references
+wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/model/cpm-$ONTO/references.html -O html/cpm/$ONTO/sections/references-en.html
+cp html/cpm/$ONTO/sections/references-en.html html/cpm/$ONTO/sections/references-de.html
+sed s/References/Referenzen/g -i html/cpm/$ONTO/sections/references-de.html
 
 #add introduction
-wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/model/cpm-1/intro-en.html -O html/cpm/$ONTO/intro-en.html
+wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/model/cpm-$ONTO/intro-en.html -O html/cpm/$ONTO/intro-en.html
 more +6 html/cpm/$ONTO/introduction-en.html >> html/cpm/$ONTO/intro-en.html
 mv html/cpm/$ONTO/intro-en.html html/cpm/$ONTO/introduction-en.html
-wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/model/cpm-1/intro-de.html -O html/cpm/$ONTO/intro-de.html
+wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/model/cpm-$ONTO/intro-de.html -O html/cpm/$ONTO/intro-de.html
 more +6 html/cpm/$ONTO/introduction-de.html >> html/cpm/$ONTO/intro-de.html
 mv html/cpm/$ONTO/intro-de.html html/cpm/$ONTO/introduction-de.html
 
@@ -38,10 +42,9 @@ sed s/Download\ serialization/Download\ in\ verschiedenen\ Datenformaten/g -i ht
 sed s/License\:/Datenlizenz\:/g -i html/cpm/$ONTO/index-de.html
 sed s/Visualization/Darstellung\ als\ Graph/g -i html/cpm/$ONTO/index-de.html
 sed s/Acknowledgements/Danksagung/g -i html/cpm/$ONTO/index-de.html
-sed s/References/Referenzen/g -i html/cpm/1/sections/references-de.html
 
 #Authors, Maintainer and other Version Section
-wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/model/cpm-1/authors.html -O html/cpm/$ONTO/sections/authors-en.html
+wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/model/cpm-$ONTO/authors.html -O html/cpm/$ONTO/sections/authors-en.html
 cp html/cpm/$ONTO/sections/authors-en.html html/cpm/$ONTO/sections/authors-de.html
 sed s/Authors/Autoren/g -i html/cpm/$ONTO/sections/authors-de.html
 sed s/Other\ Versions/Weitere\ Versionen/g -i html/cpm/$ONTO/sections/authors-de.html
