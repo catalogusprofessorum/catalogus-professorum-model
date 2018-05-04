@@ -53,11 +53,11 @@ sed s/\$\(\"\#abstract\"\)\.load/\$\(\"\#authors\"\)\.load\(\"sections\\/authors
 
 # Content Negoiation for rdf formats
 echo "<?php header('HTTP/1.1 303 See Other');"  	> html/cpm/$ONTO/index.php
-echo "$accept = explode(',', $_SERVER['HTTP_ACCEPT']);"	>> html/cpm/$ONTO/index.php
-echo "if (in_array('text/turtle ', $accept))  header('Location: ontology.ttl');" >> html/cpm/$ONTO/index.php
-echo "else if (in_array('application/n-triples', $accept)) header('Location: ontology.nt');" >> html/cpm/$ONTO/index.php
-echo "elseif (in_array('application/ld+json', $accept)) header('Location: ontology.json');" >> html/cpm/$ONTO/index.php
-echo "elseif (in_array('application/rdf+xml', $accept)) header('Location: ontology.xml');" >> html/cpm/$ONTO/index.php
+echo "\$accept = explode(',', \$_SERVER['HTTP_ACCEPT']);"	>> html/cpm/$ONTO/index.php
+echo "if (in_array('text/turtle ', \$accept))  header('Location: ontology.ttl');" >> html/cpm/$ONTO/index.php
+echo "else if (in_array('application/n-triples', \$accept)) header('Location: ontology.nt');" >> html/cpm/$ONTO/index.php
+echo "elseif (in_array('application/ld+json', \$accept)) header('Location: ontology.json');" >> html/cpm/$ONTO/index.php
+echo "elseif (in_array('application/rdf+xml', \$accept)) header('Location: ontology.xml');" >> html/cpm/$ONTO/index.php
 echo "else header('Location: index-en.html');" >> html/cpm/$ONTO/index.php
 echo "?>" >> html/cpm/$ONTO/index.php
 

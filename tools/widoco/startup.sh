@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # provide the web path for the URIs
-cd /var/www
 mkdir html/cpm/
 mkdir html/cpm/1
 mkdir html/cpm/2
@@ -19,8 +18,8 @@ chmod a+rx generate.sh
 ./generate.sh 2
 
 # Content Negoiation /cpm/
-echo "<?php header('HTTP/1.1 303 See Other');"  	> html/cpm/$index.php
-echo "header('Location: /cpm/2/');" >> html/cpm/$index.php
-echo "?>" >> html/cpm/$index.php
+echo "<?php header('HTTP/1.1 303 See Other');"  	> html/cpm/index.php
+echo "header('Location: /cpm/2/');" >> html/cpm/index.php
+echo "?>" >> html/cpm/index.php
 
 
