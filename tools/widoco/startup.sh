@@ -22,6 +22,9 @@ echo "<?php header('HTTP/1.1 303 See Other');"  	> html/cpm/index.php
 echo "header('Location: /cpm/2/');" >> html/cpm/index.php
 echo "?>" >> html/cpm/index.php
 
+# chmod to enable rebuild script
+chmod a+rw -R *
+
 # rebuild.php skript
 echo "<?php echo exec('/var/www/generate.sh 1'); echo exec('/var/www/generate.sh 2'); echo 'Rebuild finished!'; ?><a href='index.php'>index</a>" > html/cpm/rebuild.php
 

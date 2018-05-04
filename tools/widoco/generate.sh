@@ -2,7 +2,7 @@
 
 # ONTO contains version (First Argument)
 ONTO="$1"
-echo "Generating Documentation for $ONTO   "
+echo "Generating Documentation for cpm/$ONTO"
 cd /var/www
 
 #update ontology
@@ -27,12 +27,12 @@ cp html/cpm/$ONTO/sections/references-en.html html/cpm/$ONTO/sections/references
 sed s/References/Referenzen/g -i html/cpm/$ONTO/sections/references-de.html
 
 #add introduction
-wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/model/cpm-$ONTO/intro-en.html -O html/cpm/$ONTO/intro-en.html
-more +6 html/cpm/$ONTO/introduction-en.html >> html/cpm/$ONTO/intro-en.html
-mv html/cpm/$ONTO/intro-en.html html/cpm/$ONTO/introduction-en.html
-wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/model/cpm-$ONTO/intro-de.html -O html/cpm/$ONTO/intro-de.html
-more +6 html/cpm/$ONTO/introduction-de.html >> html/cpm/$ONTO/intro-de.html
-mv html/cpm/$ONTO/intro-de.html html/cpm/$ONTO/introduction-de.html
+wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/model/cpm-$ONTO/intro-en.html -O html/cpm/$ONTO/sections/intro-en.html
+more +6 html/cpm/$ONTO/sections/introduction-en.html >> html/cpm/$ONTO/sections/intro-en.html
+mv html/cpm/$ONTO/sections/intro-en.html html/cpm/$ONTO/sections/introduction-en.html
+wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/model/cpm-$ONTO/intro-de.html -O html/cpm/$ONTO/sections/intro-de.html
+more +6 html/cpm/$ONTO/sections/introduction-de.html >> html/cpm/$ONTO/sections/intro-de.html
+mv html/cpm/$ONTO/sections/intro-de.html html/cpm/$ONTO/sections/introduction-de.html
 
 #German translations
 sed s/Cross\ reference\ for/Übersicht\ über/g -i html/cpm/$ONTO/sections/crossref-de.html
