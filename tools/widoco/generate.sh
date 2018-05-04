@@ -20,6 +20,8 @@ sleep 5
 #extend the generated documentation
 wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/model/cpm-$ONTO/description-en.html -O html/cpm/$ONTO/sections/description-en.html
 wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/model/cpm-$ONTO/description-de.html -O html/cpm/$ONTO/sections/description-de.html
+wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/model/cpm-$ONTO/abstract-en.html -O html/cpm/$ONTO/sections/abstract-en.html
+wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/model/cpm-$ONTO/abstract-de.html -O html/cpm/$ONTO/sections/abstract-de.html
 
 #add references
 wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/model/cpm-$ONTO/references.html -O html/cpm/$ONTO/sections/references-en.html
