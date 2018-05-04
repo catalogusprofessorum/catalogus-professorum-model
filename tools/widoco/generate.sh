@@ -30,10 +30,10 @@ sed s/References/Referenzen/g -i html/cpm/$ONTO/sections/references-de.html
 
 #add introduction
 wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/model/cpm-$ONTO/intro-en.html -O html/cpm/$ONTO/sections/intro-en.html
-more +6 html/cpm/$ONTO/sections/introduction-en.html >> html/cpm/$ONTO/sections/intro-en.html
+more +6 ./html/cpm/$ONTO/sections/introduction-en.html >> html/cpm/$ONTO/sections/intro-en.html
 cp html/cpm/$ONTO/sections/intro-en.html html/cpm/$ONTO/sections/introduction-en.html
 wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/model/cpm-$ONTO/intro-de.html -O html/cpm/$ONTO/sections/intro-de.html
-more +6 html/cpm/$ONTO/sections/introduction-de.html >> html/cpm/$ONTO/sections/intro-de.html
+more +6 ./html/cpm/$ONTO/sections/introduction-de.html >> html/cpm/$ONTO/sections/intro-de.html
 cp html/cpm/$ONTO/sections/intro-de.html html/cpm/$ONTO/sections/introduction-de.html
 
 #German translations
