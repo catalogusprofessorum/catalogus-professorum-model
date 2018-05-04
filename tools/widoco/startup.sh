@@ -2,9 +2,9 @@
 
 # provide the web path for the URIs
 cd /var/www
-mkdir /var/www/html/cpm/
-mkdir /var/www/html/cpm/1
-mkdir /var/www/html/cpm/2
+mkdir html/cpm/
+mkdir html/cpm/1
+mkdir html/cpm/2
 
 # download WIDOC tool if not exists
 if [ ! -f widoco-1.4.3-jar-with-dependencies.jar ]; then
@@ -16,11 +16,11 @@ wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiens
 chmod a+rx generate.sh
 
 ./generate.sh 1
--/generate.sh 2
+./generate.sh 2
 
 # Content Negoiation /cpm/
-echo "<?php header('HTTP/1.1 303 See Other');"  	> /html/cpm/$index.php
-echo "header('Location: /cpm/2/');" >> /html/cpm/$index.php
-echo "?>" >> /html/cpm/$index.php
+echo "<?php header('HTTP/1.1 303 See Other');"  	> html/cpm/$index.php
+echo "header('Location: /cpm/2/');" >> html/cpm/$index.php
+echo "?>" >> html/cpm/$index.php
 
 
