@@ -5,6 +5,9 @@ ONTO="$1"
 echo "Generating Documentation for cpm/$ONTO"
 cd /var/www
 
+#remove old files
++rm -R html/cpm/$ONTO
+
 #update ontology
 wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/model/cpm-$ONTO/ontology.ttl -O ontology-cpm-$ONTO.ttl
 
