@@ -11,7 +11,7 @@ if [ ! -f widoco-1.4.3-jar-with-dependencies.jar ]; then
 fi
 
 #update generate.sh
-wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/tools/widoco/generate.sh -O generate.sh
+wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-model/master/tools/widoco/generate.sh -O generate.sh
 chmod a+rx generate.sh
 
 ./generate.sh 1

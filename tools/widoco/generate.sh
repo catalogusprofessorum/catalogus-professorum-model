@@ -9,7 +9,7 @@ cd /var/www
 +rm -R html/cpm/$ONTO
 
 #update ontology
-wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/model/cpm-$ONTO/ontology.ttl -O ontology-cpm-$ONTO.ttl
+wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-model/master/model/cpm-$ONTO/ontology.ttl -O ontology-cpm-$ONTO.ttl
 
 #generate documentation for Version 1.9
 java -jar widoco-1.4.3-jar-with-dependencies.jar -ontFile ontology-cpm-$ONTO.ttl -lang en-de -webVowl -rewriteAll -includeAnnotationProperties -outFolder html/cpm/$ONTO/
@@ -24,21 +24,21 @@ chmod a+rw -R *
 #start post processing
 
 #extend the generated documentation
-wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/model/cpm-$ONTO/description-en.html -O html/cpm/$ONTO/sections/description-en.html
-wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/model/cpm-$ONTO/description-de.html -O html/cpm/$ONTO/sections/description-de.html
-wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/model/cpm-$ONTO/abstract-en.html -O html/cpm/$ONTO/sections/abstract-en.html
-wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/model/cpm-$ONTO/abstract-de.html -O html/cpm/$ONTO/sections/abstract-de.html
+wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-model/master/model/cpm-$ONTO/description-en.html -O html/cpm/$ONTO/sections/description-en.html
+wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-model/master/model/cpm-$ONTO/description-de.html -O html/cpm/$ONTO/sections/description-de.html
+wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-model/master/model/cpm-$ONTO/abstract-en.html -O html/cpm/$ONTO/sections/abstract-en.html
+wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-model/master/model/cpm-$ONTO/abstract-de.html -O html/cpm/$ONTO/sections/abstract-de.html
 
 #add references
-wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/model/cpm-$ONTO/references.html -O html/cpm/$ONTO/sections/references-en.html
+wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-model/master/model/cpm-$ONTO/references.html -O html/cpm/$ONTO/sections/references-en.html
 cp html/cpm/$ONTO/sections/references-en.html html/cpm/$ONTO/sections/references-de.html
 sed s/References/Referenzen/g -i html/cpm/$ONTO/sections/references-de.html
 
 #add introduction
-wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/model/cpm-$ONTO/intro-en.html -O html/cpm/$ONTO/sections/intro-en.html
+wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-model/master/model/cpm-$ONTO/intro-en.html -O html/cpm/$ONTO/sections/intro-en.html
 more +6 ./html/cpm/$ONTO/sections/introduction-en.html >> html/cpm/$ONTO/sections/intro-en.html
 mv html/cpm/$ONTO/sections/intro-en.html html/cpm/$ONTO/sections/introduction-en.html
-wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/model/cpm-$ONTO/intro-de.html -O html/cpm/$ONTO/sections/intro-de.html
+wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-model/master/model/cpm-$ONTO/intro-de.html -O html/cpm/$ONTO/sections/intro-de.html
 more +6 ./html/cpm/$ONTO/sections/introduction-de.html >> html/cpm/$ONTO/sections/intro-de.html
 mv html/cpm/$ONTO/sections/intro-de.html html/cpm/$ONTO/sections/introduction-de.html
 
@@ -52,7 +52,7 @@ sed s/Visualization/Darstellung\ als\ Graph/g -i html/cpm/$ONTO/index-de.html
 sed s/Acknowledgements/Danksagung/g -i html/cpm/$ONTO/index-de.html
 
 #Authors, Maintainer and other Version Section
-wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/model/cpm-$ONTO/authors.html -O html/cpm/$ONTO/sections/authors-en.html
+wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-model/master/model/cpm-$ONTO/authors.html -O html/cpm/$ONTO/sections/authors-en.html
 cp html/cpm/$ONTO/sections/authors-en.html html/cpm/$ONTO/sections/authors-de.html
 sed s/Authors/Autoren/g -i html/cpm/$ONTO/sections/authors-de.html
 sed s/Other\ Versions/Weitere\ Versionen/g -i html/cpm/$ONTO/sections/authors-de.html
