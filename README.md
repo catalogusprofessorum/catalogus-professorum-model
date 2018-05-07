@@ -1,5 +1,5 @@
-# Catalogus Professorum Lipsiensium
-This project provides relevant data on the Leipzig Professors Catalog
+# Catalogus Professorum Model
+This project provides the data model for the Leipzig Professors Catalog
 ## Model
 The model describes the vocabulary of the database.
 * [Dokumentation](http://catalogus-professorum.org/cpm/2/)
