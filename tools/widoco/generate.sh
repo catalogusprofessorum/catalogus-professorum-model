@@ -8,6 +8,9 @@ cd /var/www
 #update ontology
 wget https://raw.githubusercontent.com/pcp-on-web/catalogus-professorum-lipsiensium/master/model/cpm-$ONTO/ontology.ttl -O ontology-cpm-$ONTO.ttl
 
+#remove old files
+rm -R html/cpm/$ONTO
+
 #generate documentation for Version 1.9
 java -jar widoco-1.4.3-jar-with-dependencies.jar -ontFile ontology-cpm-$ONTO.ttl -lang en-de -webVowl -rewriteAll -includeAnnotationProperties -outFolder html/cpm/$ONTO/
 
