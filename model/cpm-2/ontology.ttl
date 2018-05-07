@@ -656,7 +656,7 @@
     owl:versionInfo "2.0 stable", "0.1 initial creation - 24.05.2007" .
 
 <webLink> a owl:DatatypeProperty, owl:FunctionalProperty ;
-    rdfs:label "links to (e.g.Wikipedia) ("@en, "Links (e.g.Wikipedia)"@de ;
+    rdfs:label "links to (e.g.Wikipedia)"@en, "Links (e.g.Wikipedia)"@de ;
     rdfs:domain <Document>, <Person>, <Body> ;
     rdfs:range <http://www.w3.org/2001/XMLSchema#string> ;
     rdfs:comment "This property is used for links into the WWW. e.g. Wikipedia." ;
